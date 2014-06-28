@@ -1,0 +1,32 @@
+#include<iostream.h>
+#include<conio.h>
+
+class PointsOnAxis
+{
+	public:
+	int checkPoints(int x1,int y1, int x2, int y2, int x3, int y3);	//privately defined function for checking POINTS in a single line
+};
+
+
+int PointsOnAxis::checkPoints(int x1,int y1, int x2, int y2, int x3, int y3)
+{
+	int z;
+	z=x1*(y2-y3)-y1*(x2-x3)+x2*y3-x3*y2;
+	return z;
+}
+void main()
+{
+clrscr();
+int x1=-2,y1=-1,x2=5,y2=5,x3=7,y3=9,z;
+PointsOnAxis obj;
+z=obj.checkPoints(x1,y1,x2,y2,x3,y3);
+if(z==0)
+{
+	cout<<"Points are collinear";
+}
+else
+{
+	cout<<"Not Collinear";
+}
+getch();
+}
