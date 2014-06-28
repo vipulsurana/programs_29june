@@ -1,0 +1,82 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdlib.h>
+void main()
+{
+clrscr();
+randomize();
+int comScore=0,myScore=0,i,j,randomNo;
+char comOptions[3][7] = {"Rock","Paper","Scissor"},user;
+
+for(;;)
+{
+randomNo = random(3);
+cout<<"\nEnter Rock(r), Paper(p), Scissor(s) or Quit(q): ";
+cin>>user;
+cout<<endl;
+switch(user)
+{
+	case 'r':
+	if(randomNo == 0)
+	{
+		cout<<"Rock equals rock.";
+	}
+	else
+	if(randomNo == 1)
+	{
+		cout<<"Paper wraps rock.";
+		comScore++;
+	}
+	else
+	{
+		cout<<"Rock blunts scissor.";
+		myScore++;
+	}
+	break;
+	case 'p':
+	if(randomNo == 0)
+	{
+		cout<<"Paper wraps rock.";
+		myScore++;
+	}
+	else
+	if(randomNo == 1)
+	{
+		cout<<"Paper equals paper.";
+	}
+	else
+	{
+		cout<<"Scissor cuts paper.";
+		comScore++;
+	}
+	break;
+
+	case 's':
+	if(randomNo == 0)
+	{
+		cout<<"Rock blunts scissor.";
+		comScore++;
+	}
+	else
+	if(randomNo == 1)
+	{
+		cout<<"Scissor cuts paper.";
+		myScore++;
+	}
+	else
+	{
+		cout<<"Scissor equals scissor.";
+	}
+	break;
+	case 'q':
+	exit(0);
+	default:
+	cout<<"Wrong Option chosen.";
+	break;
+}
+//score
+cout<<"\nComputer Score: "<<comScore;
+cout<<"\nUser Score: "<<myScore;
+}
+getch();
+}
