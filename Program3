@@ -1,0 +1,73 @@
+#include<iostream.h>
+#include<conio.h>
+
+class Brackets
+{
+	public:
+	void checkBrackets(char *str,char *newstr);		//check brackets are balanced and correct
+};
+
+void Brackets::checkBrackets(char *str,char *newstr)
+{
+	int i,j,flag=0;
+	for(i=0,j=0;str[i]!='\0';i++)
+	{
+		if(str[i]=='{' || str[i]=='[' || str[i]=='(')
+		{
+			newstr[j]=str[i];
+			j++;
+		}
+		else  if(str[i]=='}')
+		{
+			if(newstr[j-1]=='{')
+			{
+				j--;
+			}
+			else
+			{
+				cout<<"Incorrect";
+				flag=1;
+				break;
+			}
+		}
+		else if(str[i]==']')
+		{
+			if(newstr[j-1]=='[')
+			{
+				j--;
+			}
+			else
+			{
+				cout<<"Incorrect";
+				flag=1;
+				break;
+			}
+		}
+		else if(str[i]==')')
+		{
+			if(newstr[j-1]=='(')
+			{
+				j--;
+			}
+			else
+			{
+				cout<<"Incorrect";
+				flag=1;
+				break;
+			}
+		}
+	}
+	if(flag==0)
+	{
+		cout<<"Correct";
+	}
+}
+
+void main()
+{
+	clrscr();
+	char str[]="a(b)c{d[e]}",newstr[20];
+	Brackets b;
+	b.checkBrackets(str,newstr);
+	getch();
+}
