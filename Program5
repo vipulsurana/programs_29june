@@ -1,0 +1,25 @@
+#include<iostream.h>
+#include<conio.h>
+
+void main()
+{
+	clrscr();
+	long int n,count=0,i,j,k;
+	cout<<"Enter the number:";
+	cin>>n;
+	for(i=1;i<=n;i++)
+	{
+		k=i;
+		while(k!=0)
+		{
+			j=k%10;
+			if(j==0)
+			{
+				count++;
+			}
+			k=k/10;
+		}
+	}
+	cout<<"Number of zeros are:"<<count;
+	getch();
+}
